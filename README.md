@@ -3,7 +3,7 @@ Vision-guided ESP32 robotic arm for automated screw and unscrew operations using
 
 ##  Overview
 This project focuses on the design and development of a **vision-guided robotic arm** capable of performing **automated screw and unscrew operations**.  
-The system is built around an **ESP32 microcontroller** controlling **MG995 servo and stepper motors**, whiach also includes **gear train for torque balancing** enabling precise positioning and sufficient torque for fastening tasks.
+The system is built around an **ESP32 microcontroller** controlling **MG995 servo and stepper motors**, which also includes **gear train for torque balancing** enabling precise positioning and sufficient torque for fastening tasks.
 
 The long-term goal is to integrate **camera-based alignment and closed-loop control**, allowing the robotic arm to autonomously locate and operate on screws.
 
