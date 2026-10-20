@@ -1,4 +1,4 @@
-# Servo Robotic Arm: Colour-Based Cube Sorter
+# Pechkas: Colour-Based Cube Sorter
 
 A 5-servo robotic arm controlled by an **ESP32** that sorts cubes of two colours using **recorded ("teach-and-replay") motions**. There is no ROS, no inverse kinematics and no machine vision. You teach the arm each movement once with sliders, and a colour sensor decides which recording to play.
 
@@ -105,38 +105,6 @@ Servo wires are usually brown or black for GND, red for V+, and orange or yellow
 - If you use a buck converter, set its output to 6.0 V with a multimeter **before** connecting any servo.
 - Power the ESP32 from USB while developing.
 
-## Software and toolchain
-
-- Single-servo test: **ESP-IDF v5.5.3** (native LEDC PWM, no Arduino).
-- Full firmware (web UI, record and replay): framework **TBD**.
-- Target chip: **ESP32**.
-
-## Quick start: single-servo test
-
-Wire one servo to **GPIO 27** with external power and common ground (see [Wiring and power](#wiring-and-power)). Keep the servo **unloaded**, with no arm link attached.
-
-```text
-esp_servo_test/
-├── CMakeLists.txt
-└── main/
-    ├── CMakeLists.txt
-    └── main.c
-```
-
-Build and flash with the servo power **off**, then switch it on afterwards:
-
-```bash
-idf.py fullclean
-idf.py -p COMx flash monitor    # replace COMx with your port
-```
-
-Expected behaviour:
-
-- The servo snaps to 90° at power-up.
-- It then repeatedly sweeps 90° → 120° → 60° → 90° slowly, at about 50°/s.
-- The monitor prints the current angle after each move.
-- A faint hum while holding position is normal. Constant loud buzzing usually means a missing common ground or a weak supply.
-
 ## Roadmap
 
 1. Verify each servo individually, and find each joint's safe min and max angle.
@@ -156,24 +124,3 @@ Expected behaviour:
 - **Limited gripper force.** A 9 g micro servo has modest torque (typically on the order of 1.5 to 2 kg·cm), which limits cube weight and grip force.
 - **Colour detection depends on lighting.** The sensor needs shading, a fixed distance and calibration.
 - **Power.** Servo stalls or a weak supply can cause ESP32 resets.
-
-## Safety
-
-- Keep the servo power switch within reach.
-- Test new code with the arm supported by hand and servos unloaded first.
-- Set angle limits before running unattended, especially for the shoulder and gripper.
-- Keep fingers clear of the gripper and linkages during motion.
-- Unplug a servo that gets hot or buzzes continuously.
-
-## Acknowledgements
-
-- Record-and-replay web-slider concept inspired by the [un0038998/RobotArm](https://github.com/un0038998/RobotArm) project and the related Hash Include Electronics video.
-- Built with the [ESP-IDF](https://github.com/espressif/esp-idf) framework by Espressif.
-
-## License
-
-TBD.
-
----
-
-**Author:** Shri ([GitHub handle: TBD])
