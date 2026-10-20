@@ -12,13 +12,8 @@ A 5-servo robotic arm controlled by an **ESP32** that sorts cubes of two colours
 - [How it works](#how-it-works)
 - [Hardware](#hardware)
 - [Wiring and power](#wiring-and-power)
-- [Software and toolchain](#software-and-toolchain)
-- [Quick start: single-servo test](#quick-start-single-servo-test)
 - [Roadmap](#roadmap)
 - [Known limitations](#known-limitations)
-- [Safety](#safety)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
 
 ---
 
